@@ -13,8 +13,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var nameField: UITextField!
     @IBOutlet var happinessField: UITextField!
     @IBOutlet var tableView: UITableView?
-    
-    var mealsTable: AddAMealDelegate?
+
+    var delegate : AddAMealDelegate?
     var items = [Item(name: "Eggplant", calories: 10),
                  Item(name: "Brownie", calories: 10),
                  Item(name: "Zucchini", calories: 10),
@@ -76,23 +76,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
-    @IBAction func add() {
-        if(nameField == nil || happinessField == nil) {
-            return
-        }
-        
-        let name:String = nameField!.text!
-        if let happiness = Int(happinessField!.text!) {
-            let meal = Meal(name: name, happiness: happiness, items: selected)
-            
-            print("Eaten \(meal.name), with happiness \(meal.happiness) and itens: \(meal.items)")
-            mealsTable!.add(meal)
-            
-            
-            if let navigation = navigationController {
-                navigation.popViewController(animated: true)
+    func convertToInt(_ text: String?) -> Int? {
+      if let number = text {
+        return Int(number)
+      }
+      return nil
+    }
+    
+    func getMealFromForm() -> Meal? {
+        if let name = nameField?.text {
+            if let happiness = convertToInt(happinessField?.text) {
+                return Meal(name: name, happiness: happiness, items: selected)
             }
         }
+        return nil;
+    }
+    
+    @IBAction func add() {
+      if let meal = getMealFromForm() {
+            if let meals = mealsTable {
+                meals.add(meal)
+                if let navigation = navigationController {
+                    navigation.popViewController(animated: true)
+                } else {
+                    Alert(controller: self).show(message: "Unable to go back, but the meal was added.")
+                }
+                return
+            }
+        }
+        Alert(controller: self).show()
     }
 }
 
