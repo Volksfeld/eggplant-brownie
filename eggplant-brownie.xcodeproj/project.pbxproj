@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497B0DD623274D76008BD44B /* AddAMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B0DD523274D76008BD44B /* AddAMealDelegate.swift */; };
+		497E80682318787D009DBAC5 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E80672318787D009DBAC5 /* Meal.swift */; };
+		497E806A23187CD0009DBAC5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E806923187CD0009DBAC5 /* Item.swift */; };
+		498D40FE233FD1A3004DE9D2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498D40FD233FD1A3004DE9D2 /* Alert.swift */; };
+		49CE04A62334FEA800B8E3F8 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE04A42334FEA800B8E3F8 /* NewItemViewController.swift */; };
+		49CE04A72334FEA800B8E3F8 /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CE04A52334FEA800B8E3F8 /* NewItemViewController.xib */; };
+		49CE04A92335288E00B8E3F8 /* AddAnItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE04A82335288E00B8E3F8 /* AddAnItemDelegate.swift */; };
+		49E4185123215D4F00F1562F /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E4185023215D4F00F1562F /* MealsTableViewController.swift */; };
 		49E42FF422C3EE3D006A555F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E42FF322C3EE3D006A555F /* AppDelegate.swift */; };
 		49E42FF622C3EE3D006A555F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E42FF522C3EE3D006A555F /* ViewController.swift */; };
 		49E42FF922C3EE3D006A555F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E42FF722C3EE3D006A555F /* Main.storyboard */; };
@@ -34,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		497B0DD523274D76008BD44B /* AddAMealDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAMealDelegate.swift; sourceTree = "<group>"; };
+		497E80672318787D009DBAC5 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		497E806923187CD0009DBAC5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		498D40FD233FD1A3004DE9D2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		49CE04A42334FEA800B8E3F8 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		49CE04A52334FEA800B8E3F8 /* NewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
+		49CE04A82335288E00B8E3F8 /* AddAnItemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnItemDelegate.swift; sourceTree = "<group>"; };
+		49E4185023215D4F00F1562F /* MealsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		49E42FF022C3EE3D006A555F /* eggplant-brownie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eggplant-brownie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E42FF322C3EE3D006A555F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E42FF522C3EE3D006A555F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +90,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		497E80642318775E009DBAC5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				497E80672318787D009DBAC5 /* Meal.swift */,
+				497E806923187CD0009DBAC5 /* Item.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		497E8065231877DA009DBAC5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				49CE04A52334FEA800B8E3F8 /* NewItemViewController.xib */,
+				49E42FF722C3EE3D006A555F /* Main.storyboard */,
+				498D40FD233FD1A3004DE9D2 /* Alert.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		497E8066231877EE009DBAC5 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				49E42FF522C3EE3D006A555F /* ViewController.swift */,
+				49E4185023215D4F00F1562F /* MealsTableViewController.swift */,
+				497B0DD523274D76008BD44B /* AddAMealDelegate.swift */,
+				49CE04A42334FEA800B8E3F8 /* NewItemViewController.swift */,
+				49CE04A82335288E00B8E3F8 /* AddAnItemDelegate.swift */,
+			);
+			path = viewcontrollers;
+			sourceTree = "<group>";
+		};
 		49E42FE722C3EE3C006A555F = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +144,10 @@
 		49E42FF222C3EE3D006A555F /* eggplant-brownie */ = {
 			isa = PBXGroup;
 			children = (
+				497E8066231877EE009DBAC5 /* viewcontrollers */,
+				497E8065231877DA009DBAC5 /* views */,
+				497E80642318775E009DBAC5 /* models */,
 				49E42FF322C3EE3D006A555F /* AppDelegate.swift */,
-				49E42FF522C3EE3D006A555F /* ViewController.swift */,
-				49E42FF722C3EE3D006A555F /* Main.storyboard */,
 				49E42FFA22C3EE3E006A555F /* Assets.xcassets */,
 				49E42FFC22C3EE3E006A555F /* LaunchScreen.storyboard */,
 				49E42FFF22C3EE3E006A555F /* Info.plist */,
@@ -231,6 +279,7 @@
 			files = (
 				49E42FFE22C3EE3E006A555F /* LaunchScreen.storyboard in Resources */,
 				49E42FFB22C3EE3E006A555F /* Assets.xcassets in Resources */,
+				49CE04A72334FEA800B8E3F8 /* NewItemViewController.xib in Resources */,
 				49E42FF922C3EE3D006A555F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,8 +305,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498D40FE233FD1A3004DE9D2 /* Alert.swift in Sources */,
+				49E4185123215D4F00F1562F /* MealsTableViewController.swift in Sources */,
+				497E806A23187CD0009DBAC5 /* Item.swift in Sources */,
 				49E42FF622C3EE3D006A555F /* ViewController.swift in Sources */,
+				497B0DD623274D76008BD44B /* AddAMealDelegate.swift in Sources */,
+				49CE04A92335288E00B8E3F8 /* AddAnItemDelegate.swift in Sources */,
+				497E80682318787D009DBAC5 /* Meal.swift in Sources */,
 				49E42FF422C3EE3D006A555F /* AppDelegate.swift in Sources */,
+				49CE04A62334FEA800B8E3F8 /* NewItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
