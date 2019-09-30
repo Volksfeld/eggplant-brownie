@@ -4,8 +4,37 @@ class MealsTableViewController : UITableViewController, AddAMealDelegate {
     var meals = [Meal(name: "Eggplant Brownie", happiness: 5),
                  Meal(name: "Zucchini Muffin", happiness: 3)]
     
+    override func viewDidLoad() {
+
+        guard let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let path = mainPath.appendingPathComponent("eggplant-brownie-meals.dados")
+
+        do {
+            let data = try Data(contentsOf: path)
+
+            if let loaded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) {
+                 meals = loaded as! Array<Meal>
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+
+
+    }
+    
     func add(_ meal:Meal) {
         meals.append(meal)
+        
+        guard let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+               let path = mainPath.appendingPathComponent("eggplant-brownie-meals.dados")
+        
+        do {
+           let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
+           try data.write(to: path)
+           }
+            catch {
+                    print(error.localizedDescription)
+                   }
         tableView.reloadData()
     }
     
@@ -36,22 +65,11 @@ class MealsTableViewController : UITableViewController, AddAMealDelegate {
             if let indexPath = tableView.indexPath(for: cell) {
                 let row = indexPath.row
                 let meal = meals[row]
-                func removeSelected(action: UIAlertAction) {
-                    print("Removing")
-                    meals.remove(at: row)
-                    tableView.reloadData()
-                }
-                let details =  UIAlertController(title: meal.name,
-                                                 message: meal.details(),
-                    preferredStyle: UIAlertController.Style.alert)
                 
-                let remove = UIAlertAction(title: "Remove", style: UIAlertAction.Style.destructive, handler: removeSelected)
-                details.addAction(remove)
-                let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
-                details.addAction(ok)
-            
-                present(details, animated: true)
-                print("Long Press: \(meal.name)")
+                RemoveMealController(controller: self).show(meal, handler: { action in
+                    self.meals.remove(at: row)
+                    self.tableView.reloadData()
+                })
             }
         }
     }
