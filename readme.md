@@ -1,3 +1,3 @@
 # Eggplant Brownie
 
-### A simple iOS app created under the course of Swift course by Alura
+### A simple iOS app created with help from the Swift course by Alura
