@@ -26,17 +26,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func add(_ item: Item) {
         items.append(item)
+        Dao().saveItems(items)
+        
         if let table = tableView {
-            table.reloadData()
-        } else {
-            Alert(controller: self).show(message: "Unable to reload the itens table")
-        }
+                  table.reloadData()
+              } else {
+                  Alert(controller: self).show(message: "Unable to reload the itens table")
+              }
     }
     
     override func viewDidLoad() {
        let newItemButton =  UIBarButtonItem(title: "new item", style: UIBarButtonItem.Style.plain,
                                             target: self, action: #selector(showNewItem))
         navigationItem.rightBarButtonItem = newItemButton
+        
+        self.items = Dao().loadItems()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

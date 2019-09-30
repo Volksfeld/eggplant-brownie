@@ -5,36 +5,12 @@ class MealsTableViewController : UITableViewController, AddAMealDelegate {
                  Meal(name: "Zucchini Muffin", happiness: 3)]
     
     override func viewDidLoad() {
-
-        guard let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let path = mainPath.appendingPathComponent("eggplant-brownie-meals.dados")
-
-        do {
-            let data = try Data(contentsOf: path)
-
-            if let loaded = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) {
-                 meals = loaded as! Array<Meal>
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-
-
+        self.meals = Dao().loadMeals()
     }
     
     func add(_ meal:Meal) {
         meals.append(meal)
-        
-        guard let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-               let path = mainPath.appendingPathComponent("eggplant-brownie-meals.dados")
-        
-        do {
-           let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
-           try data.write(to: path)
-           }
-            catch {
-                    print(error.localizedDescription)
-                   }
+        Dao().saveMeals(meals)
         tableView.reloadData()
     }
     
